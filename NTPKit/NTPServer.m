@@ -9,8 +9,6 @@
 #import "NTPServer.h"
 
 #import "NTPTypes.h"
-#import "NSError+LocalizedDescription.h"
-#import "NSError+SysErrno.h"
 
 #import <arpa/inet.h>
 #import <assert.h>
@@ -112,7 +110,8 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
         if (getaddrinfo_err != 0) {
             if (error) {
                 NSString *errorDescription = [[NSString alloc] initWithUTF8String:gai_strerror(getaddrinfo_err)];
-                *error = [NSError errorWithDomain:@"netdb" code:getaddrinfo_err localizedDescription:errorDescription];
+                NSDictionary *errorInfo = [[NSDictionary alloc] initWithObjectsAndKeys:errorDescription, NSLocalizedDescriptionKey, nil];
+                *error = [NSError errorWithDomain:@"netdb" code:getaddrinfo_err userInfo:errorInfo];
             }
             return NO;
         }
@@ -121,7 +120,7 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
         const int sock = socket(addrinfo->ai_family, addrinfo->ai_socktype, addrinfo->ai_protocol);
         if (sock < 0) {
             if (error) {
-                *error = [NSError errorWithDomain:@"sys.socket" sysErrno:errno];
+                *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
             }
             freeaddrinfo(addrinfo);
             return NO;
@@ -149,7 +148,7 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
         freeaddrinfo(addrinfo);
         if (connect_err) {
             if (error) {
-                *error = [NSError errorWithDomain:@"sys.socket" sysErrno:connect_err];
+                *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:connect_err userInfo:nil];
             }
             close(sock);
             return NO;
@@ -202,7 +201,7 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
         const int send_err = send_s == sizeof(packet) ? 0 : send_s >= 0 ? EIO : errno;
         if (send_err) {
             if (error) {
-                *error = [NSError errorWithDomain:@"sys.socket" sysErrno:send_err];
+                *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:send_err userInfo:nil];
             }
             return NO;
         }
@@ -212,7 +211,7 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
         const int recv_err = recv_s == sizeof(packet) ? 0 : recv_s >= 0 ? EIO : errno;
         if (recv_err) {
             if (error) {
-                *error = [NSError errorWithDomain:@"sys.socket" sysErrno:recv_err];
+                *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:recv_err userInfo:nil];
             }
             return NO;
         }

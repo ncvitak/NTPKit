@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		AE2913BB1CB24997002A0BEE /* NTPKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2913BA1CB24997002A0BEE /* NTPKitTests.swift */; };
 		AE2913BD1CB24997002A0BEE /* NTPKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECCDFE71C741A5800FC158A /* NTPKit.framework */; };
-		AE617F691CB2235700EDB5FC /* NSError+SysErrno.h in Headers */ = {isa = PBXBuildFile; fileRef = AE617F671CB2235700EDB5FC /* NSError+SysErrno.h */; };
-		AE617F6A1CB2235700EDB5FC /* NSError+SysErrno.m in Sources */ = {isa = PBXBuildFile; fileRef = AE617F681CB2235700EDB5FC /* NSError+SysErrno.m */; };
-		AE8630C01CB0AB9400F8549C /* NSError+LocalizedDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = AE8630BE1CB0AB9400F8549C /* NSError+LocalizedDescription.h */; };
-		AE8630C11CB0AB9400F8549C /* NSError+LocalizedDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8630BF1CB0AB9400F8549C /* NSError+LocalizedDescription.m */; };
 		AE8630E11CB0DDE800F8549C /* NTPTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = AE8630DF1CB0DDE800F8549C /* NTPTypes.c */; };
 		AE8630E21CB0DDE800F8549C /* NTPTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = AE8630E01CB0DDE800F8549C /* NTPTypes.h */; };
 		AECCDFEB1C741A5800FC158A /* NTPKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AECCDFEA1C741A5800FC158A /* NTPKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,10 +30,6 @@
 		AE2913B81CB24997002A0BEE /* NTPKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NTPKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE2913BA1CB24997002A0BEE /* NTPKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTPKitTests.swift; sourceTree = "<group>"; };
 		AE2913BC1CB24997002A0BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE617F671CB2235700EDB5FC /* NSError+SysErrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+SysErrno.h"; sourceTree = "<group>"; };
-		AE617F681CB2235700EDB5FC /* NSError+SysErrno.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+SysErrno.m"; sourceTree = "<group>"; };
-		AE8630BE1CB0AB9400F8549C /* NSError+LocalizedDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+LocalizedDescription.h"; sourceTree = "<group>"; };
-		AE8630BF1CB0AB9400F8549C /* NSError+LocalizedDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+LocalizedDescription.m"; sourceTree = "<group>"; };
 		AE8630DF1CB0DDE800F8549C /* NTPTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NTPTypes.c; sourceTree = "<group>"; };
 		AE8630E01CB0DDE800F8549C /* NTPTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTPTypes.h; sourceTree = "<group>"; };
 		AECCDFE71C741A5800FC158A /* NTPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NTPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,20 +72,8 @@
 			children = (
 				AE8630E01CB0DDE800F8549C /* NTPTypes.h */,
 				AE8630DF1CB0DDE800F8549C /* NTPTypes.c */,
-				AE617F6C1CB229AE00EDB5FC /* Categories */,
 			);
 			name = Internal;
-			sourceTree = "<group>";
-		};
-		AE617F6C1CB229AE00EDB5FC /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				AE8630BE1CB0AB9400F8549C /* NSError+LocalizedDescription.h */,
-				AE8630BF1CB0AB9400F8549C /* NSError+LocalizedDescription.m */,
-				AE617F671CB2235700EDB5FC /* NSError+SysErrno.h */,
-				AE617F681CB2235700EDB5FC /* NSError+SysErrno.m */,
-			);
-			name = Categories;
 			sourceTree = "<group>";
 		};
 		AECCDFDD1C741A5800FC158A = {
@@ -134,9 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AECCDFEB1C741A5800FC158A /* NTPKit.h in Headers */,
-				AE617F691CB2235700EDB5FC /* NSError+SysErrno.h in Headers */,
 				AECCE00A1C75868400FC158A /* NTPServer.h in Headers */,
-				AE8630C01CB0AB9400F8549C /* NSError+LocalizedDescription.h in Headers */,
 				AE8630E21CB0DDE800F8549C /* NTPTypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,10 +224,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE617F6A1CB2235700EDB5FC /* NSError+SysErrno.m in Sources */,
 				AECCE00B1C75868400FC158A /* NTPServer.m in Sources */,
 				AE8630E11CB0DDE800F8549C /* NTPTypes.c in Sources */,
-				AE8630C11CB0AB9400F8549C /* NSError+LocalizedDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +398,7 @@
 				AE2913C21CB24997002A0BEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AECCDFE11C741A5800FC158A /* Build configuration list for PBXProject "NTPKit" */ = {
 			isa = XCConfigurationList;
