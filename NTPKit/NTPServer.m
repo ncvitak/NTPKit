@@ -181,6 +181,11 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
     }
 }
 
+- (BOOL)sync {
+    NSError *error;
+    return [self syncWithError:&error];
+}
+
 - (BOOL)syncWithError:(NSError * _Nonnull __autoreleasing *)error {
     @synchronized (self) {
         if (![self connectWithError:error]) {
@@ -229,6 +234,12 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
         _offset = ((T[1] - T[0]) + (T[2] - T[3])) / 2.0;
         return YES;
     }
+}
+
+- (nullable NSDate *)date
+{
+    NSError *error;
+    return [self dateWithError:&error];
 }
 
 - (nullable NSDate *)dateWithError:(NSError * _Nonnull __autoreleasing *)error {
