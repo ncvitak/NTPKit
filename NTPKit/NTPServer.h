@@ -36,8 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 //! Disconnects from the NTP server.
 - (void)disconnect NS_REQUIRES_SUPER;
 
+- (BOOL)sync;
+
 //! Attempts to perform an NTP sync request.
 - (BOOL)syncWithError:(NSError *__autoreleasing _Nonnull *_Nullable)error NS_REQUIRES_SUPER;
+
+- (nullable NSDate *)date;
 
 //! Returns the NTP date based on the last sync request.
 - (nullable NSDate *)dateWithError:(NSError *__autoreleasing _Nonnull *_Nullable)error;
