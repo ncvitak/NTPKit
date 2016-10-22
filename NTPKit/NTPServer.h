@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly, atomic, getter=isConnected) BOOL connected;
 
 //! The default NTP server.
-+ (NTPServer *)defaultServer;
+@property (class, readonly, nonatomic) NTPServer *defaultServer;
 
 //! Initializes an NTP server with it's hostname and port.
 - (instancetype)initWithHostname:(NSString *)hostname port:(NSUInteger)port NS_DESIGNATED_INITIALIZER;
@@ -32,15 +32,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init;
 
 //! Attempts to connect to the NTP server.
-- (BOOL)connectWithError:(NSError *__autoreleasing _Nonnull *_Nullable)error NS_REQUIRES_SUPER;
+- (BOOL)connectWithError:(NSError *__autoreleasing _Nullable *_Nullable)error NS_REQUIRES_SUPER;
 //! Disconnects from the NTP server.
 - (void)disconnect NS_REQUIRES_SUPER;
 
 //! Attempts to perform an NTP sync request.
-- (BOOL)syncWithError:(NSError *__autoreleasing _Nonnull *_Nullable)error NS_REQUIRES_SUPER;
+- (BOOL)syncWithError:(NSError *__autoreleasing _Nullable *_Nullable)error NS_REQUIRES_SUPER;
 
 //! Returns the NTP date based on the last sync request.
-- (nullable NSDate *)dateWithError:(NSError *__autoreleasing _Nonnull *_Nullable)error;
+- (nullable NSDate *)dateWithError:(NSError *__autoreleasing _Nullable *_Nullable)error;
 
 NS_ASSUME_NONNULL_END
 

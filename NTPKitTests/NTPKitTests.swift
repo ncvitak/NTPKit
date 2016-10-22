@@ -22,14 +22,11 @@ class NTPKitTests: XCTestCase {
     }
     
     func testDate() {
-        let server = NTPServer.defaultServer()
+        let server = NTPServer.default
         do {
             try server.date()
         } catch {
             XCTFail("\(error)")
         }
     }
-    
-    
-    
 }

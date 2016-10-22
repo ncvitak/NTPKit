@@ -9,7 +9,7 @@ A simple NTP (Network Time Protocol) framework for iOS
 ```swift
 import NTPKit
 // ...
-let server = NTPServer.defaultServer()
+let server = NTPServer.default
 let date = try? server.date()
 print(date)
 ```

@@ -91,7 +91,7 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
     }
 }
 
-- (BOOL)connectWithError:(NSError *__autoreleasing _Nonnull *)error {
+- (BOOL)connectWithError:(NSError *__autoreleasing _Nullable *_Nullable)error {
     @synchronized (self) {
         if (_socket >= 0) {
             return YES;
@@ -181,7 +181,7 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
     }
 }
 
-- (BOOL)syncWithError:(NSError * _Nonnull __autoreleasing *)error {
+- (BOOL)syncWithError:(NSError *__autoreleasing _Nullable *_Nullable)error {
     @synchronized (self) {
         if (![self connectWithError:error]) {
             return NO;
@@ -231,7 +231,7 @@ static ufixed64_t ntp_localtime_get_ufixed64() {
     }
 }
 
-- (nullable NSDate *)dateWithError:(NSError * _Nonnull __autoreleasing *)error {
+- (nullable NSDate *)dateWithError:(NSError *__autoreleasing _Nullable *_Nullable)error {
     @synchronized (self) {
         return isfinite(_offset) || [self syncWithError:error] ? [NSDate dateWithTimeIntervalSinceNow:_offset] : nil;
     }
